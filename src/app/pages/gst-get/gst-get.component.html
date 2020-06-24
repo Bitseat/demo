@@ -1,0 +1,45 @@
+<!-- <button routerLink="/business/upload" class="btn btn-primary"><i class="fas fa-plus"></i>Upload new Resume</button> -->
+<br>
+
+<br>
+<input class="form-control" type="text" name="search" placeholder="Search" [(ngModel)]="filter">      
+      
+    <br>
+
+
+<table class="table table-bordered">
+    <thead style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:rgb(21, 5, 102)">
+       <tr>
+         <td> Candidate Name </td>
+         <td> Email </td>
+         <td> Phone number </td>
+      <!--    <td> Skills </td>
+         <td> Education </td>
+         <td> Degree </td>
+         <td> Designation </td>
+         <td> Experience </td>
+         <td> Company Names </td> -->
+         <td>Review</td>
+         <!-- <td> Delete</td> -->
+       </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let business of businesses  | filter:filter">
+        <td>{{business.name}}</td>
+        <td>{{business.email}}</td>
+        <td>{{business.mobile_number}}</td>
+       <!--  <td>{{business.skills}}</td>
+        <td>{{business.college_name}}</td>
+        <td>{{business.degree}}</td>
+        <td>{{business.designation}}</td>
+        <td>{{business.experience}}</td>
+        <td>{{business.company_names}}</td> -->
+
+        <td><a [routerLink]="['/pages/business/edit',business._id]"  class="btn btn-primary"><i class="far fa-edit"></i></a></td>
+        <!-- <td><a (click) = "deleteBusiness(business._id)" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td> -->
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <!-- <button routerLink="/business/create" class="btn btn-primary"><i class="fas fa-plus"></i>Add new</button> &nbsp; -->
+  <button (click)="refresh()" class="btn btn-secondary"><i class="fas fa-sync-alt"></i></button>

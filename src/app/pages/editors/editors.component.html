@@ -1,0 +1,133 @@
+
+
+<div class="row">
+  <div class="col-lg-6" >
+    <!-- <p >{{business.avatar}}</p> -->
+    <nb-card>
+      <nb-card-header>Original Resume</nb-card-header>
+      
+      <nb-card-body>
+        
+          <pdf-viewer src = {{business.avatar}}
+          
+          
+          [show-all]="true"
+          [autoresize]="false"
+          [original-size]='false'
+          [fit-to-page]='false'
+          [render-text]='true'
+          ></pdf-viewer>
+          
+      </nb-card-body>
+    
+    </nb-card>
+  
+    
+  </div>
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Extracted Result</nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="gst_editForm" novalidate>
+          <div class="form-group">
+            <label class="col-md-4"><b>Name</b></label>
+            <input type="text" class="form-control" formControlName="name" #name [(ngModel)] = "business.name" />
+          </div>
+          <div *ngIf="gst_editForm.controls['name'].invalid && (gst_editForm.controls['name'].dirty || gst_editForm.controls['name'].touched)" class="alert alert-danger">
+            <div *ngIf="gst_editForm.controls['name'].errors.required">
+              Candidate Name is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4"><b>Email</b> </label>
+            <input type="text" class="form-control" formControlName="email" #email [(ngModel)] = "business.email" />
+          </div>
+          <div *ngIf="gst_editForm.controls['email'].invalid && (gst_editForm.controls['email'].dirty || gst_editForm.controls['email'].touched)" class="alert alert-danger">
+            <div *ngIf="gst_editForm.controls['email'].errors.required">
+              Email is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4"><b>Phone</b> </label>
+            <input type="number" class="form-control" formControlName="mobile_number" #mobile_number [(ngModel)] = "business.mobile_number" />
+          </div>
+          <div *ngIf="gst_editForm.controls['mobile_number'].invalid && (gst_editForm.controls['mobile_number'].dirty || gst_editForm.controls['mobile_number'].touched)" class="alert alert-danger">
+            <div *ngIf="gst_editForm.controls['mobile_number'].errors.required">
+              Phone Number is required.
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label class="col-md-4"><b>Skills</b> </label>
+            <textarea rows="15" class="form-control" formControlName="skills" #skills [(ngModel)] = "business.skills"></textarea>
+          </div>
+          <div *ngIf="gst_editForm.controls['skills'].invalid && (gst_editForm.controls['skills'].dirty || gst_editForm.controls['skills'].touched)" class="alert alert-danger">
+            <div *ngIf="gst_editForm.controls['skills'].errors.required">
+              Skills is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4"><b>College </b> </label>
+            <textarea rows="8" class="form-control" formControlName="skills" #college_name [(ngModel)] = "business.college_name"></textarea>
+          </div>
+          <div *ngIf="gst_editForm.controls['college_name'].invalid && (gst_editForm.controls['college_name'].dirty || gst_editForm.controls['college_name'].touched)" class="alert alert-danger">
+            <div *ngIf="gst_editForm.controls['college_name'].errors.required">
+              College name is required.
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label class="col-md-4"><b>Education </b></label>
+            <textarea rows="8" class="form-control" formControlName="degree" #degree [(ngModel)] = "business.degree"></textarea>
+          </div>
+          <div *ngIf="gst_editForm.controls['degree'].invalid && (gst_editForm.controls['degree'].dirty || gst_editForm.controls['degree'].touched)" class="alert alert-danger">
+            <div *ngIf="gst_editForm.controls['degree'].errors.required">
+              Degree is required.
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label class="col-md-4"><b>Designation </b></label>
+            <textarea rows="8" class="form-control" formControlName="designation" #designation [(ngModel)] = "business.designation"></textarea>
+          </div>
+          <div *ngIf="gst_editForm.controls['designation'].invalid && (gst_editForm.controls['designation'].dirty || gst_editForm.controls['designation'].touched)" class="alert alert-danger">
+            <div *ngIf="gst_editForm.controls['designation'].errors.required">
+              Designation is required.
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label class="col-md-4"><b>Experience</b> </label>
+            <textarea rows="8" class="form-control" formControlName="designation" #experience [(ngModel)] = "business.experience"></textarea>
+          </div>
+          <div *ngIf="gst_editForm.controls['experience'].invalid && (gst_editForm.controls['experience'].dirty || gst_editForm.controls['experience'].touched)" class="alert alert-danger">
+            <div *ngIf="gst_editForm.controls['experience'].errors.required">
+              Experience is required.
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label class="col-md-4"><b>Company Names</b> </label>
+            <textarea rows="8" class="form-control" formControlName="designation" #company_names [(ngModel)] = "business.company_names"></textarea>
+          </div>
+          <div *ngIf="gst_editForm.controls['company_names'].invalid && (gst_editForm.controls['company_names'].dirty || gst_editForm.controls['company_names'].touched)" class="alert alert-danger">
+            <div *ngIf="gst_editForm.controls['company_names'].errors.required">
+              Company Names is required.
+            </div>
+          </div>
+
+         
+    
+          <div class="form-group">
+            <button  type="button" (click)="updateBusiness(name.value, email.value, mobile_number.value, skills.value, college_name.value, degree.value, designation.value, experience.value, company_names.value)"
+             
+            class="btn btn-primary">Update</button>
+            <!-- [disabled]="gst_editForm.invalid" -->
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+

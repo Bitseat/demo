@@ -1,0 +1,100 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="gst_editForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Candidate Name</label>
+        <input type="text" class="form-control" formControlName="name" #name [(ngModel)] = "business.name" />
+      </div>
+      <div *ngIf="gst_editForm.controls['name'].invalid && (gst_editForm.controls['name'].dirty || gst_editForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="gst_editForm.controls['name'].errors.required">
+          Person Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Email </label>
+        <input type="text" class="form-control" formControlName="email" #email [(ngModel)] = "business.email" />
+      </div>
+      <div *ngIf="gst_editForm.controls['email'].invalid && (gst_editForm.controls['email'].dirty || gst_editForm.controls['email'].touched)" class="alert alert-danger">
+        <div *ngIf="gst_editForm.controls['email'].errors.required">
+          Person Business is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Phone Number </label>
+        <input type="number" class="form-control" formControlName="mobile_number" #mobile_number [(ngModel)] = "business.mobile_number" />
+      </div>
+      <div *ngIf="gst_editForm.controls['mobile_number'].invalid && (gst_editForm.controls['mobile_number'].dirty || gst_editForm.controls['mobile_number'].touched)" class="alert alert-danger">
+        <div *ngIf="gst_editForm.controls['mobile_number'].errors.required">
+          Business GST Number is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Skills </label>
+        <input type="text" class="form-control" formControlName="skills" #skills [(ngModel)] = "business.skills" />
+      </div>
+      <div *ngIf="gst_editForm.controls['skills'].invalid && (gst_editForm.controls['skills'].dirty || gst_editForm.controls['skills'].touched)" class="alert alert-danger">
+        <div *ngIf="gst_editForm.controls['skills'].errors.required">
+          Business GST Number is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Education </label>
+        <input type="text" class="form-control" formControlName="college_name" #college_name [(ngModel)] = "business.college_name" />
+      </div>
+      <div *ngIf="gst_editForm.controls['college_name'].invalid && (gst_editForm.controls['college_name'].dirty || gst_editForm.controls['college_name'].touched)" class="alert alert-danger">
+        <div *ngIf="gst_editForm.controls['college_name'].errors.required">
+          Business GST Number is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Degree </label>
+        <input type="text" class="form-control" formControlName="degree" #degree [(ngModel)] = "business.degree" />
+      </div>
+      <div *ngIf="gst_editForm.controls['degree'].invalid && (gst_editForm.controls['degree'].dirty || gst_editForm.controls['degree'].touched)" class="alert alert-danger">
+        <div *ngIf="gst_editForm.controls['degree'].errors.required">
+          Business GST Number is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Designation </label>
+        <input type="text" class="form-control" formControlName="designation" #designation [(ngModel)] = "business.designation" />
+      </div>
+      <div *ngIf="gst_editForm.controls['designation'].invalid && (gst_editForm.controls['designation'].dirty || gst_editForm.controls['designation'].touched)" class="alert alert-danger">
+        <div *ngIf="gst_editForm.controls['designation'].errors.required">
+          Business GST Number is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Experience </label>
+        <input type="text" class="form-control" formControlName="experience" #experience [(ngModel)] = "business.experience" />
+      </div>
+      <div *ngIf="gst_editForm.controls['experience'].invalid && (gst_editForm.controls['experience'].dirty || gst_editForm.controls['experience'].touched)" class="alert alert-danger">
+        <div *ngIf="gst_editForm.controls['experience'].errors.required">
+          Business GST Number is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Company Names </label>
+        <input type="text" class="form-control" formControlName="company_names" #company_names [(ngModel)] = "business.company_names" />
+      </div>
+      <div *ngIf="gst_editForm.controls['company_names'].invalid && (gst_editForm.controls['company_names'].dirty || gst_editForm.controls['company_names'].touched)" class="alert alert-danger">
+        <div *ngIf="gst_editForm.controls['company_names'].errors.required">
+          Business GST Number is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button  type="button" (click)="updateBusiness(name.value, email.value, mobile_number.value, skills.value, college_name.value, degree.value, designation.value, experience.value, company_names.value)"
+         
+        class="btn btn-primary">Update Data</button>
+        <!-- [disabled]="gst_editForm.invalid" -->
+      </div>
+    </form>
+  </div>
+</div>
